@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Cafe Jitter</title>
+</head>
+<body>
+    <div class="landing-page">
+        <div class="left">
+            <h1>Welcome to</h1>
+            <h2><i class="fas fa-mug-hot"></i> Cafe Jitter</h2>
+        </div>
+        <div class="right">
+            <div class="image">
+                <img src="./images/hello.gif" alt="hello" id="image">
+            </div>
+            <div class="text">
+                <h1><i class="fas fa-mug-hot"></i> Cafe Jitter</h1>
+                <h2>Join Us & Grab a cup of coffee!</h2>
+                <h3>Your Identtiy? <i class="fas fa-level-down-alt"></i></h3> 
+                <select name="select" id="select-option">
+                    <option value="Customer">Customer</option>
+                    <option value="Waiter">Waiter</option>
+                    <option value="Manager">Manager</option>
+                </select>
+                <button onclick="fn()">Get in</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function fn()
+            {
+                var today = new Date();
+                var hour=today.getHours();
+                var select = document.getElementById("select-option");
+                var optn = select.options[select.selectedIndex].value;
+
+                if(optn=="Manager"){
+                    document.getElementById("image").src = "./images/open.gif";
+                }
+                if(optn=="Customer"){
+                    if(hour>=13 && hour<=20){
+                        document.getElementById("image").src = "./images/open.gif";
+                    }
+                    else{
+                        document.getElementById("image").src = "./images/closed.gif";
+                    }
+                }
+                if(optn=="Waiter"){
+                    if(hour>=11 && hour<=22){
+                        document.getElementById("image").src = "./images/open.gif";
+                    }
+                    else{
+                        document.getElementById("image").src = "./images/closed.gif";
+                    }
+                }
+            }
+        </script>
+</body>
+</html>
